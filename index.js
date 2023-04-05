@@ -4,7 +4,7 @@ const bancoDeDados = require("./database/db")
 
 
 const app = express()
-const port  = 3000
+const port  =port || 3003
 
 bancoDeDados()
 app.use(express.json())
