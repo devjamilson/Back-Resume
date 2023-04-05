@@ -1,15 +1,17 @@
 const express = require('express')
 const resumeRoute = require("./routes/routes")
 const bancoDeDados = require("./database/db")
+const dotEnv = require('dotenv')
+dotEnv.config()
 
 
 const app = express()
-const port  =port || 3003
+const porta  =process.env.PORT || 3003
 
 bancoDeDados()
 app.use(express.json())
 app.use("/resume", resumeRoute)
 
-app.listen(port, ()=>{
-    console.log(`Servidor rodando na porta ${port}!`)
+app.listen(porta, ()=>{
+    console.log(`Servidor rodando na porta ${porta}!`)
 })
