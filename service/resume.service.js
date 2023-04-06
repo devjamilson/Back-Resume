@@ -14,7 +14,7 @@ const updateService = (
     conteudo})
 
 
-const searchByTitleService = (title) => Resume.find({titulo: {$regex: `${title || ''}`, $options: 'i'}}).sort({_id: -1})
+const searchByTitleService = (title) => Resume.find({titulo: {$regex: `${title || ''}`, $options: 'i'}})
 
 module.exports ={
     create,
