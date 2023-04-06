@@ -11,9 +11,7 @@ router.post('/', ResumeController.create)
 router.get('/:id', ResumeController.findById)
 router.patch('/:id',ResumeController.update)
 
-router.delete('/deletar', (req, res)=>{
-    res.send("Pagina de listagem")
-})
+router.delete('/', ResumeController.deletar)
 
 
 module.exports = router

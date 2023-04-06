@@ -98,10 +98,21 @@ const searchByTitle = async (req, res)=>{
     }
 }
 
+const deletar = async(req, res)=>{
+    try{
+        await ResumeService.deleteService()
+        res.send({message: "Resumo deletado com sucesso!"})
+    }catch(err){
+        res.status(500).send({message: err.message})
+    }
+}
+
+
 module.exports = {
     create,
     findAllResumes,
     findById,
     update,
-    searchByTitle
+    searchByTitle,
+    deletar
 }

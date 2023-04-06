@@ -4,6 +4,8 @@ const create = (body) => Resume.create(body)
 
 const findAllService = () => Resume.find()
 
+const deleteService = () => Resume.deleteOne()
+
 const findByIdService = (id) => Resume.findById(id)
 
 const updateService = (
@@ -21,5 +23,6 @@ module.exports ={
     findAllService,
     findByIdService,
     updateService,
-    searchByTitleService
+    searchByTitleService,
+    deleteService
 }
