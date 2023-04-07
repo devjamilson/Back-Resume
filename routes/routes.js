@@ -11,7 +11,7 @@ router.post('/', ResumeController.create)
 router.get('/:id', ResumeController.findById)
 router.patch('/:id',ResumeController.update)
 
-router.delete('/', ResumeController.deletar)
+router.delete('/:id', ResumeController.deletar)
 
 
 module.exports = router
