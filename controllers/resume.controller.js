@@ -105,7 +105,18 @@ const searchByTitle = async (req, res)=>{
 
 const deletar = async(req, res)=>{
     try{
-        await ResumeService.deleteService()
+        
+        const id = req.params.id;
+        if(!mongoose.Types.ObjectId.isValid(id)){
+            return res.status(400).send({message: "Id inválido!"})
+        }
+        const ResumeU = await ResumeService.findByIdService(id)
+        if(!ResumeU){
+            return res.status(400).send({message: "Resumo não encontrado!"})
+        }
+        
+
+        await ResumeService.deleteService(id)
         res.send({message: "Resumo deletado com sucesso!"})
     }catch(err){
         res.status(500).send({message: err.message})

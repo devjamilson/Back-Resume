@@ -4,7 +4,7 @@ const create = (body) => Resume.create(body)
 
 const findAllService = () => Resume.find()
 
-const deleteService = () => Resume.deleteOne()
+const deleteService = (id) => Resume.deleteOne(id)
 
 const findByIdService = (id) => Resume.findById(id)
 
