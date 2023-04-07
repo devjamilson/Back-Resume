@@ -22,12 +22,17 @@ const create = async (req, res) =>{
     })
 }
 const findAllResumes = async (req, res) =>{
-    const Resumes = await ResumeService.findAllService()
+    try{
+        const Resumes = await ResumeService.findAllService()
 
-    if(Resumes.length === 0){
-        return res.status(400).send({message: "Não existe resumo!"})
+        if(Resumes.length === 0){
+                return res.status(400).send({message: "Não existe resumo!"})
+        }
+        res.json(Resumes)
+    }catch(err){
+        res.status(500).send({message: err.message})
     }
-    res.json(Resumes)
+    
 }
 const findById = async (req, res)=>{
     const id = req.params.id;
